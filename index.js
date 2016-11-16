@@ -22,7 +22,9 @@ app.get('/', function(request, response)
 
 app.get('/list-server', function(request, response) 
 {
-	response.send( JSON.stringify(gameServerArray) );
+	var container = new Object();
+	container.serverList = gameServerArray;
+	response.send( JSON.stringify(container) );
 });
 
 
