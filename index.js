@@ -62,8 +62,9 @@ app.post('/game-server-heartbeat', function(request, response)
 		function () 
 		{
 			var newServerObj 					 = JSON.parse(jsonString);
+			
 			newServerObj.lastHeartbeatTimestamp = Date.now();
-			newServerObj.httpHeaderIp			= request.connection.remoteAddress;
+			newServerObj.ip					    = request.connection.remoteAddress;
 			
 			var isNewServer = true;
 			for(var i=0; i < gameServerArray.length; i++)
